@@ -1,0 +1,46 @@
+extends ./layout
+
+block content
+	header
+		div(class='header-content')
+			div(class='header-content-inner')
+				h2 Meeting for Momochi
+				div(class='spacer-10')
+				a(href='#js-text-textview' id="js-first-run-button" class='btn-skeleton btn-medium page-scroll') 起動
+	section(id='main-containts')
+		div(class='container')
+			div(class='form' role='form')
+				div(class="form-group" id="js-text-form-group")
+					h5 Recognized sentences
+					textarea(id="js-text-textview" class='form-control' rows='8' disabled="disabled" )
+
+			div(class='box-footer text-center')
+				a(type='button' class='btn btn-primary btn-large' id="js-recording-button") Start recognizing
+			div(class='spacer-10')
+			div(class='form2' role='form')
+				div(class="form-group" id="js-text2-form-group")
+					h5 Temporary Area
+					textarea(id="js-text-textview-temp" class='form-control' rows='8' tabindex='1')
+			div(class='box-footer text-center')
+				a(type='button' class='btn btn-info btn-medium' id="js-log-button") log
+				span	　
+				a(type='button' class='btn btn-info btn-medium' id="js-clear-button") clear
+				span	＿＿
+				a(type='button' class='btn btn-danger btn-large' id="js-sending-button" tabindex='2') Send message
+			div(class='spacer-10')
+			div(class='form' role='form')
+				div(class="form-group" id="js-text-form-log")
+					h5 Log
+					textarea(id="js-text-textview-log" class='form-control' rows='20')
+			div(class='div' role='div')
+				div(class='div-in')
+					h5	Sending message/Memo
+					form(class='form-display' id='js-form-history')
+						ul(class='defaultlist messagelist' id='js-ul-history')
+				div(id='result')
+			script(src='/javascripts/recorder.js')
+			script(src='/javascripts/recaius-speech-recognition-import.js')
+			script(src='/javascripts/speech2text4M.js')
+			script(src='/javascripts/date.js')
+			script(src='/javascripts/mustache.js')
+			script(src='https://cdn.rawgit.com/jprichardson/string.js/master/lib/string.min.js')

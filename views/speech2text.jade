@@ -1,0 +1,41 @@
+extends ./layout
+
+block content
+	header
+		div(class='header-content')
+			div(class='header-content-inner')
+				h2 音声認識を開始しますか
+				div(class='spacer-10')
+				a(href='#js-text-textview' id="js-first-run-button" class='btn-skeleton btn-medium page-scroll') 起動
+	section(id='main-containts')
+		div(class='container')
+			div(class='form' role='form')
+				div(class="form-group" id="js-text-form-group")
+					h5 認識結果テキスト
+					textarea(id="js-text-textview" class='form-control' rows='8' disabled="disabled" )
+
+			div(class='box-footer text-center')
+				a(type='button' class='btn btn-primary btn-large' id="js-recording-button") 音声認識開始
+			div(class='spacer-10')
+			div(class='form2' role='form')
+				div(class="form-group" id="js-text2-form-group")
+					h5 仮置き（temporary）
+					textarea(id="js-text-textview-temp" class='form-control' rows='8')
+			div(class='box-footer text-center')
+				a(type='button' class='btn btn-info btn-medium' id="js-log-button") log
+				span	　
+				a(type='button' class='btn btn-info btn-medium' id="js-clear-button") clear
+				span	（5sec変更がないと送信）
+				a(type='button' class='btn btn-danger btn-large' id="js-sending-button") Chatに送信
+			div(class='spacer-10')
+			div(class='form' role='form')
+				div(class="form-group" id="js-text-form-log")
+					h5 Log
+					textarea(id="js-text-textview-log" class='form-control' rows='20')
+			div(class='div' role='div')
+				div(class='div-in')
+					h5	履歴
+					div(class='div-display' id='js-div-history')
+			script(src='/javascripts/recorder.js')
+			script(src='/javascripts/recaius-speech-recognition-import.js')
+			script(src='/javascripts/speech2text.js')
